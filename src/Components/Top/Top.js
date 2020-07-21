@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react'
-import Shows from '../Shows/Shows'
+import Show from '../Show/Show';
 import Axios from 'axios';
 import myHeaders from '../Environment/Environment'
 
-
-const Top = (props) => {
+const Top = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
@@ -25,8 +24,15 @@ const Top = (props) => {
       if (data.length === 0) {
         return <p>Loading...</p>;
       }
-      return <p>{data.map(show =>(show.show.ids.trakt))}</p>;
-    };
+      return (
+        <div>
+        <h1>Displaying shows now</h1>
+        {data.map(show =>(
+          <Show id={show.show.ids.trakt} />
+        ))}
+        </div>
+      )
+};
 
 
 

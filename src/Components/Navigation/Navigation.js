@@ -1,6 +1,5 @@
 import React, {Fragment} from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Shows from '../Shows/Shows';
 import Top from '../Top/Top'
 export default function App() {
     return (
@@ -25,7 +24,6 @@ export default function App() {
 const Home = () => (
     <Fragment>
       <h1>Home</h1>
-      <Shows />
     </Fragment>
     );
 

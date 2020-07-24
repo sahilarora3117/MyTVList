@@ -1,26 +1,23 @@
 import React, {useState, useEffect} from 'react'
 import Show from '../Show/Show';
 import Axios from 'axios';
-import myHeaders from '../Environment/Environment'
 
 const Top = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        const fetchData = async () => {
-          const result = await Axios(
-            `https://api.trakt.tv/shows/trending?page=$1+"&limit=10`,
-            {
-              method: "GET",
-              headers: myHeaders
-            }
-          );
-          setData(result.data);
-          console.log(result.data);
-            
-        };
-        fetchData();
+      Axios.get('http://localhost:9000/trending')
+      .then(function (response) {
+        setData(response.data);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
       }, []);
-        
+  
       if (data.length === 0) {
         return <p>Loading...</p>;
       }
@@ -28,7 +25,7 @@ const Top = () => {
         <div>
         <h1>Displaying shows now</h1>
         {data.map(show =>(
-          <Show id={show.show.ids.trakt} />
+          <Show key={show.show.ids.trakt} title={show.show.title} tvdbid={show.show.ids.tvdb} traktid={show.show.ids.trakt} />
         ))}
         </div>
       )

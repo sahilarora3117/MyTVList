@@ -1,3 +1,6 @@
 .App {
   text-align: center;
 }
+.image {
+  background-image: url("https://artworks.thetvdb.com/banners/posters/263365-3.jpg");
+}

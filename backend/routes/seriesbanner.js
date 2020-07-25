@@ -3,9 +3,9 @@ var router = express.Router();
 const TVDB = require('node-tvdb');
 const tvdb = new TVDB('L4QXKUSQ771I9A1Y');
 router.get('/:id', function (req,res){
-    tvdb.getSeriesImages(req.params.id, 'poster')
+    tvdb.getSeriesBanner(req.params.id)
     .then(response => {
-        var url =  "https://artworks.thetvdb.com/banners/" + response[0].fileName;
+        var url =  "https://artworks.thetvdb.com/banners/" + response;
         res.send(url); 
     
     })

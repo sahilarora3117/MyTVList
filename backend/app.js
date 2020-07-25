@@ -8,6 +8,9 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var trending = require('./routes/trending');
 var seriesimage = require('./routes/seriesimage');
+var showsummary = require('./routes/showsummary');
+var showinfo = require('./routes/showinfo');
+var seriesbanner = require('./routes/seriesbanner');
 var app = express();
 
 // view engine setup
@@ -25,7 +28,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/trending', trending);
 app.use('/seriesimage/', seriesimage);
-
+app.use('/showsummary/', showsummary);
+app.use('/showinfo/', showinfo); 
+app.use('/seriesbanner', seriesbanner);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

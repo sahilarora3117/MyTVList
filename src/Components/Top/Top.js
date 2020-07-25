@@ -7,6 +7,7 @@ const Top = () => {
     useEffect(() => {
       Axios.get('http://localhost:9000/trending')
       .then(function (response) {
+        console.log(response.data)
         setData(response.data);
       })
       .catch(function (error) {

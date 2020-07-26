@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
-
+import './Info.css';
 
 const Info = (props) => {
     const [image, setImage] = useState([]);
@@ -20,8 +20,8 @@ const Info = (props) => {
         });
       }, [props.tvdbid]);
     return (
-        <div>
-            <img src={image} alt="problem showing the poster"/>
+        <div className="cropped">
+            <img src={image} alt="problem showing the poster" className="image"/>
         </div>
     )
 }

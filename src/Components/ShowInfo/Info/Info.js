@@ -20,8 +20,8 @@ const Info = (props) => {
         });
       }, [props.tvdbid]);
     return (
-        <div className="cropped">
-            <img src={image} alt="problem showing the poster" className="image"/>
+        <div>
+            <img src={image} alt="problem showing the poster" width="100%" className="image"/>
         </div>
     )
 }

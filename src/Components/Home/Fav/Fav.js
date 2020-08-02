@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 import Show from '../../Show/Show';
-
+import {Loader} from 'semantic-ui-react';
 
 
 const Fav = (props) => {
@@ -21,11 +21,11 @@ const Fav = (props) => {
         });
         }, [props.ids]);
         if (data.length === 0) {
-            return <p>Loading...</p>;
+            return <Loader active inline='centered' >Loading</Loader>;
           }
           return (
             <div>
-                <Show key={data.ids.trakt} title={data.title} tvdbid={data.ids.tvdb} traktid={data.ids.trakt} />
+                <Show key={data.ids.trakt} title={data.title} tvdbid={data.ids.tvdb} traktid={data.ids.trakt} year={data.year}/>
             </div>
           )
 }

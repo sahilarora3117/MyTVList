@@ -3,8 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import 'semantic-ui-css/semantic.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 if (localStorage.getItem("myfav") === null){
   localStorage.setItem("myfav", "[]");
+}
+if (localStorage.getItem("episodes") === null){
+  localStorage.setItem("episodes", "[]");
 }
 ReactDOM.render(
   <React.StrictMode>

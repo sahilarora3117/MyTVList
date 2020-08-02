@@ -3,24 +3,22 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Top from '../Top/Top'
 import Home from '../Home/Home';
 import Info from '../ShowInfo/ShowInfo';
-
+import {Navbar, Nav} from 'react-bootstrap';
 export default function App() {
     return (
     <Router>
-      <main>
-        <nav>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/top">Top</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-          </ul>
-        </nav>
+  <Navbar bg="dark" variant="dark" fixed="top">
+    <Navbar.Brand href="/">MyTVList</Navbar.Brand>
+    <Nav className="mr-auto">
+      <Nav.Link href="/">Home</Nav.Link>
+      <Nav.Link href="/top">Trending</Nav.Link>
+      <Nav.Link href="/pricing">Pricing</Nav.Link>
+    </Nav>
+  </Navbar>
+    
         <Route path="/" exact component={Fav} />
         <Route path="/top" component={TopView} />
         <Route path="/show/:id" component={ShowInfo} />
-       
-      </main>
   </Router>
     );
   }

@@ -1,8 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import Fav from './Fav/Fav';
+import {Grid} from 'semantic-ui-react'
+
 const Home = () => {
     function emptylocal () {
         localStorage.removeItem ("myfav");
+        localStorage.removeItem ("episodes");
     }
     const [data, setData] = useState([]);
 
@@ -14,12 +17,18 @@ const Home = () => {
         setData(fav);
         
     }, []);   
+    
     return (
         <div>
-        {data.map(ids =>(
-          <Fav key={ids} ids={ids} />
-        ))}
-        <button onClick={emptylocal}>remove local storage</button>        
+            <Grid doubling columns={4} container>
+
+                {data.map(ids =>(
+                <Grid.Column>
+                    <Fav key={ids} ids={ids} />
+                </Grid.Column>
+                ))}
+            </Grid>
+            <button onClick={emptylocal}>Clear Data</button>
         </div>
 
     )

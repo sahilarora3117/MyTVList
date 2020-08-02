@@ -8,6 +8,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 if (localStorage.getItem("myfav") === null){
   localStorage.setItem("myfav", "[]");
 }
+if (localStorage.getItem("episodes") === null){
+  localStorage.setItem("episodes", "[]");
+}
 ReactDOM.render(
   <React.StrictMode>
     <App />

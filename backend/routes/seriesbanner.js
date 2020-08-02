@@ -6,7 +6,7 @@ router.get('/:id', function (req,res){
     tvdb.getSeriesImages(req.params.id, 'fanart')   
     .then(response => {
         console.log(response)
-        var url =  "https://artworks.thetvdb.com/banners/" + response[0].fileName;
+        var url =  "https://artworks.thetvdb.com/banners/" + response[2].fileName;
         res.send(url); 
     
     })

@@ -1,5 +1,6 @@
-/* .image{
-    position: absolute;
-    clip: rect(0px,100%,0%,50%);
-    } */
-
+.imagediv {
+    background-color: darkgray;
+    max-height: 20em; 
+    overflow: hidden;
+    margin-bottom: 3%;
+}

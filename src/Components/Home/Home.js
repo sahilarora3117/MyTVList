@@ -5,6 +5,7 @@ import {Grid} from 'semantic-ui-react'
 const Home = () => {
     function emptylocal () {
         localStorage.removeItem ("myfav");
+        localStorage.removeItem ("episodes");
     }
     const [data, setData] = useState([]);
 
@@ -16,6 +17,7 @@ const Home = () => {
         setData(fav);
         
     }, []);   
+    
     return (
         <div>
             <Grid doubling columns={4} container>
@@ -26,6 +28,7 @@ const Home = () => {
                 </Grid.Column>
                 ))}
             </Grid>
+            <button onClick={emptylocal}>Clear Data</button>
         </div>
 
     )

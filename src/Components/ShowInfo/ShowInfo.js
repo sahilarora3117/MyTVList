@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Axios from 'axios';
 import Info from './Info/Info';
+import {Loader} from 'semantic-ui-react';
 const ShowInfo = () => {
     let location = useLocation();
     var path = location.pathname.substring(location.pathname.lastIndexOf('/') + 1)
@@ -36,7 +37,8 @@ const ShowInfo = () => {
     if (data.length === 0 || episode.length === 0){
         return (
             <div>
-                <h1>loading.....</h1>
+                          <Loader active inline='centered' >Loading</Loader>
+
             </div>
         // <Info tvdbid={data.ids.tvdb}/>
         )

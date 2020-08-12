@@ -1,13 +1,16 @@
 import React, {Fragment} from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import './Navigation.css';
 import Top from '../Top/Top'
 import Home from '../Home/Home';
 import Info from '../ShowInfo/ShowInfo';
 import {Navbar, Nav} from 'react-bootstrap';
+import Search from '../Search/Search';
+import ResultPage from '../Result/Result';
 export default function App() {
     return (
     <Router>
-  <Navbar bg="dark" variant="dark" fixed="top">
+  <Navbar bg="dark" variant="dark" fixed="top" class="mynav">
     <Navbar.Brand href="/">MyTVList</Navbar.Brand>
     <Nav className="mr-auto">
       <Nav.Link href="/">Home</Nav.Link>
@@ -15,10 +18,14 @@ export default function App() {
       <Nav.Link href="/pricing">Pricing</Nav.Link>
     </Nav>
   </Navbar>
+  <br />
+  <br />
+  <br />
     
         <Route path="/" exact component={Fav} />
         <Route path="/top" component={TopView} />
         <Route path="/show/:id" component={ShowInfo} />
+        <Route path="/search/" component={Result}/>
   </Router>
     );
   }
@@ -26,14 +33,14 @@ export default function App() {
 
 const Fav = () => (
     <Fragment>
-      <h1>Home</h1>
+      <Search />
       <Home />
     </Fragment>
     );
 
 const TopView = () => (
   <Fragment>
-    <h1>Top</h1>
+    <Search />
     <Top />
   </Fragment>
 )
@@ -42,5 +49,11 @@ const TopView = () => (
 const ShowInfo = () => (
   <Fragment>
     <Info />
+  </Fragment>
+)
+
+const Result = () => (
+  <Fragment>
+    <ResultPage />
   </Fragment>
 )

@@ -11,10 +11,9 @@ export default function App() {
     return (
     <Router>
   <Navbar bg="dark" variant="dark" fixed="top" class="mynav">
-  <Navbar.Brand href="/"><Link>MyTVList</Link></Navbar.Brand>
+  <Navbar.Brand><Link to="/" className="links">MyTVList</Link></Navbar.Brand>
     <Nav className="mr-auto">
-      <Nav.Link><Link to="/">MyTVList</Link></Nav.Link>
-      <Nav.Link><Link to="/top">Trending</Link></Nav.Link>
+      <Nav.Link><Link className="links" to="/top">Trending</Link></Nav.Link>
     </Nav>
   </Navbar>
   <br />

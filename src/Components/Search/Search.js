@@ -14,9 +14,7 @@ class searchbar extends React.Component {
       handleChange(event) {    this.setState({value: event.target.value});  }
   handleSubmit(event) {
       console.log(this.state.value)
-      return (
-        <Result term={this.state.value}/>
-      )
+      
 }
   render (){
       var path = "/search/" + this.state.value;

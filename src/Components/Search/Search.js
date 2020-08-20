@@ -1,7 +1,7 @@
 import React from 'react';
-import {Container, Input, Icon} from 'semantic-ui-react';
+import {Container, Input, Icon, Button} from 'semantic-ui-react';
 import Result from '../Result/Result';
-
+import {Link} from 'react-router-dom';
 
 class searchbar extends React.Component {
   
@@ -9,20 +9,14 @@ class searchbar extends React.Component {
         super(props);
         this.state = {value: ''};
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
       }
       handleChange(event) {    this.setState({value: event.target.value});  }
-  handleSubmit(event) {
-      console.log(this.state.value)
-      
-}
   render (){
-      var path = "/search/" + this.state.value;
     return (
         <Container>
-            <Input icon={<Icon name='search' inverted circular link onClick={this.handleSubmit}/>} fluid type='text' value={this.state.value} onChange={this.handleChange}                 autoFocus
-                onKeyDown={this.handleSubmit} placeholder='Search...' action name="query" ></Input>
-            <br />        
+            <Input icon={<Icon name='search'/>} fluid type='text' value={this.state.value} onChange={this.handleChange}  placeholder='Search...' action name="query" ></Input>
+            <Link to={"/search/" + encodeURI(this.state.value)}><Button>Search</Button></Link>
+
         </Container>
     )
   }

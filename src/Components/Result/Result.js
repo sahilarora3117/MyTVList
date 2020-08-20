@@ -8,8 +8,9 @@ const Result = (props) => {
     const [data,setData] = useState([]);
     let location = useLocation();
     var path = location.pathname.substring(location.pathname.lastIndexOf('/') + 1)
+
     useEffect (() => {
-        Axios.get('http://localhost:9000/search/' + props.term)
+        Axios.get('http://localhost:9000/search/' + path)
         .then(function (response) {
           setData(response.data);
           console.log(response.data);

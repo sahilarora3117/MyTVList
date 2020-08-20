@@ -12,6 +12,7 @@ var showsummary = require('./routes/showsummary');
 var showinfo = require('./routes/showinfo');
 var seriesbanner = require('./routes/seriesbanner');
 var episodelist = require('./routes/episodelist');
+var search = require('./routes/search');
 var app = express();
 
 // view engine setup
@@ -33,6 +34,7 @@ app.use('/showsummary/', showsummary);
 app.use('/showinfo/', showinfo); 
 app.use('/seriesbanner', seriesbanner);
 app.use('/episodelist', episodelist)
+app.use('/search', search);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

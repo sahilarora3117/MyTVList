@@ -1,0 +1,12 @@
+.mynav {
+    margin-bottom: 300px;
+}
+
+.links {
+    color:white;
+}
+
+.links:hover {
+    color: white;
+    text-decoration: none;
+}

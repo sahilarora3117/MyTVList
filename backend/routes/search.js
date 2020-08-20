@@ -1,8 +1,9 @@
 var express = require("express");
 var router = express.Router();
-var Axios = require("axios");
-router.get('/', function (req,res){
-    Axios.get('https://api.trakt.tv/shows/trending?page=$1+"&limit=20', {
+var Axios = require('axios');
+
+router.get('/:query', function (req,res){
+    Axios.get('https://api.trakt.tv/search/show?query=' + req.params.query, {
         headers: {
             "trakt-api-key":
             "61f407a46f6292f437b152e9a3e1009707fcd2634b9c3ff808d168988098a94d",
@@ -20,6 +21,7 @@ router.get('/', function (req,res){
       .finally(function () {
         // always executed
       });  
-})
+});
+
 
 module.exports = router;

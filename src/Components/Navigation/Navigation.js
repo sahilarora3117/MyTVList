@@ -1,5 +1,5 @@
 import React, {Fragment} from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './Navigation.css';
 import Top from '../Top/Top'
 import Home from '../Home/Home';
@@ -11,11 +11,10 @@ export default function App() {
     return (
     <Router>
   <Navbar bg="dark" variant="dark" fixed="top" class="mynav">
-    <Navbar.Brand href="/">MyTVList</Navbar.Brand>
+  <Navbar.Brand href="/"><Link>MyTVList</Link></Navbar.Brand>
     <Nav className="mr-auto">
-      <Nav.Link href="/">Home</Nav.Link>
-      <Nav.Link href="/top">Trending</Nav.Link>
-      <Nav.Link href="/pricing">Pricing</Nav.Link>
+      <Nav.Link><Link to="/">MyTVList</Link></Nav.Link>
+      <Nav.Link><Link to="/top">Trending</Link></Nav.Link>
     </Nav>
   </Navbar>
   <br />

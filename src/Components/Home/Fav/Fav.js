@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 import Show from '../../Show/Show';
-import {Loader} from 'semantic-ui-react';
+import {Placeholder, Card} from 'semantic-ui-react';
 
 
 const Fav = (props) => {
@@ -21,7 +21,13 @@ const Fav = (props) => {
         });
         }, [props.ids]);
         if (data.length === 0) {
-            return <Loader active inline='centered' >Loading</Loader>;
+            return ( 
+              <Card>
+                <Placeholder inverted style={{ height: 383, width: 260 }}>
+                  <Placeholder.Image />
+                </Placeholder>
+              </Card>
+            )
           }
           return (
             <div>

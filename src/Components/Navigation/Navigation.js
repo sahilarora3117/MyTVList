@@ -10,7 +10,7 @@ import ResultPage from '../Result/Result';
 export default function App() {
     return (
     <Router>
-  <Navbar fixed="top" class="mynav">
+  <Navbar fixed="top" className="mynav">
   <Navbar.Brand><Link to="/" className="links">MyTVList</Link></Navbar.Brand>
     <Nav className="mr-auto">
       <Nav.Link><Link className="links" to="/top">Trending</Link></Nav.Link>
@@ -22,7 +22,7 @@ export default function App() {
   <br />
     
         <Route path="/" exact component={Fav} />
-        <Route path="/top" component={TopView} />
+        <Route path="/trending" component={TopView} />
         <Route path="/show/:id" component={ShowInfo} />
         <Route path="/search/" component={Result}/>
   </Router>

@@ -1,10 +1,7 @@
 .mynav {
     margin-bottom: 300px;
+    background-color: #202020;
 }
-:local(.navbar) {
-    background:#2E5F91;
-    color:white !important;
-  }
   
 
 .links {

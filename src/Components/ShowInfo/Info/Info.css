@@ -1,6 +1,9 @@
 .imagediv {
-    background-color: darkgray;
-    max-height: 20em; 
+    max-height: 25em; 
     overflow: hidden;
     margin-bottom: 3%;
+    height: 25em;
+}
+.Acc {
+    background-color: black;
 }

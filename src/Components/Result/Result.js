@@ -3,7 +3,7 @@ import Show from '../Show/Show';
 import { useLocation } from 'react-router-dom';
 import Axios from 'axios'
 import {Grid, Loader} from 'semantic-ui-react'
-
+import Search from '../Search/Search'
 const Result = (props) => {
     const [data,setData] = useState([]);
     let location = useLocation();
@@ -28,6 +28,7 @@ const Result = (props) => {
    if (data.length === 0){
         return (
             <div>
+              <Search></Search>
 <Loader active inline='centered' >Loading</Loader>
             </div>
         )
@@ -35,7 +36,7 @@ const Result = (props) => {
     else {
         return (
             <div>
-        <h1>Displaying shows now</h1>
+        <Search></Search>
         
         <Grid doubling columns={4} container>
 

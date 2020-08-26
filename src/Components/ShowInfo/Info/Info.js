@@ -1,10 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 import './Info.css';
-import {Header, Container, Image, Flag} from 'semantic-ui-react'
+import {Header, Container, Image, Flag, Embed} from 'semantic-ui-react'
 import Episode from '../../Episode/Episode';
 import {Accordion, Card} from 'react-bootstrap';
-
+function youtube_parser(url){
+  var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+  var match = url.match(regExp);
+  return (match&&match[7].length==11)? match[7] : false;
+}
 const Info = (props) => {
     const [image, setImage] = useState([]);
     useEffect(() => {
@@ -26,6 +30,7 @@ const Info = (props) => {
 
       }, [props.data.ids.tvdb]);
     var event = 0;
+
     return (
         <div>
             
@@ -34,15 +39,19 @@ const Info = (props) => {
               <Image  src={image} alt="problem showing the poster" width="100%" className="image" fluid bordered/>
               </div>
             <Container>
-              <Header as='h1'>{props.data.title}</Header>
-              <Header as='h6' floated="left">{props.data.overview}</Header>
+              <Header as='h1' color="yellow">{props.data.title}</Header>
+              <Header as='h6' color="grey">{props.data.overview}</Header>
               <br /> <br />
               <p>Certification: {props.data.certification}</p>
               <p>Country: {props.data.country.toUpperCase()} <Flag name={props.data.country} /></p>
               <p>Language: {props.data.language.toUpperCase()}</p>
-              
+              <Embed
+            id={youtube_parser(props.data.trailer)}
+            placeholder='https://www.xda-developers.com/files/2018/03/youtube-dark-1024x672.png'
+            source='youtube'
+  />
               <Header as='h2'>Episodes:</Header>
-              <Accordion>
+              <Accordion className="Acc">
               <Card>
               {props.episode.map((season, index) =>(
                 <div>

@@ -27,7 +27,6 @@ const Top = () => {
       }
       return (
         <div>
-        <h1>Displaying shows now</h1>
         
         <Grid doubling columns={4} container>
 

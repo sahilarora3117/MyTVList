@@ -48,12 +48,12 @@ const FavIcon = (props) => {
     }
     if (includes === true || JSON.parse(localStorage.getItem("myfav")).includes(props.id) === true ){
         return (
-            <Icon name="favorite" color='green' fitted onClick={removefromfav}></Icon>
+            <Icon name="favorite" color='red' fitted onClick={removefromfav}></Icon>
         )
     }
     else {
         return (
-            <Icon name="favorite"   fitted onClick={addtofav}></Icon>
+            <Icon name="favorite" color="blue" fitted onClick={addtofav}></Icon>
         )
     }
     

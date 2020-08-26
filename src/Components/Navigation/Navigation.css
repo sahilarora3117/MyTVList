@@ -1,6 +1,11 @@
 .mynav {
     margin-bottom: 300px;
 }
+:local(.navbar) {
+    background:#2E5F91;
+    color:white !important;
+  }
+  
 
 .links {
     color:white;

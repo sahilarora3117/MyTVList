@@ -10,10 +10,11 @@ import ResultPage from '../Result/Result';
 export default function App() {
     return (
     <Router>
-  <Navbar bg="dark" variant="dark" fixed="top" class="mynav">
+  <Navbar fixed="top" class="mynav">
   <Navbar.Brand><Link to="/" className="links">MyTVList</Link></Navbar.Brand>
     <Nav className="mr-auto">
       <Nav.Link><Link className="links" to="/top">Trending</Link></Nav.Link>
+      <Nav.Link><Link className="links" to="/search/">Search</Link></Nav.Link>
     </Nav>
   </Navbar>
   <br />
@@ -31,14 +32,12 @@ export default function App() {
 
 const Fav = () => (
     <Fragment>
-      <Search />
       <Home />
     </Fragment>
     );
 
 const TopView = () => (
   <Fragment>
-    <Search />
     <Top />
   </Fragment>
 )

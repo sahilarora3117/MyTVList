@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 import { Card, Image, Header} from 'semantic-ui-react'
 import FavIcon from './Favicon/Favicon.js';
-import placeholder from './tv.png';
 import {Link} from 'react-router-dom';
 const Show = (props) => {
     const [image, setImage] = useState([]);  

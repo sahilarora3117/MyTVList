@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {Icon} from 'semantic-ui-react'
+import {Icon, Popup} from 'semantic-ui-react'
 
 const FavIcon = (props) => {
     const [includes, setincludes] = useState();
@@ -48,12 +48,22 @@ const FavIcon = (props) => {
     }
     if (includes === true || JSON.parse(localStorage.getItem("myfav")).includes(props.id) === true ){
         return (
-            <Icon name="favorite" color='red' fitted onClick={removefromfav}></Icon>
+            <Popup 
+            trigger={<Icon name="favorite" color='red' fitted onClick={removefromfav}></Icon>}
+            content="Remove From Favorites"
+            inverted
+            />
+
         )
     }
     else {
         return (
-            <Icon name="favorite" color="blue" fitted onClick={addtofav}></Icon>
+            <Popup 
+            trigger={<Icon name="favorite" color="blue" fitted onClick={addtofav}></Icon> }
+            content="Add to Favorites"
+            inverted
+            />
+            
         )
     }
     

@@ -13,7 +13,7 @@ export default function App() {
   <Navbar fixed="top" className="mynav">
   <Navbar.Brand><Link to="/" className="links">MyTVList</Link></Navbar.Brand>
     <Nav className="mr-auto">
-      <Nav.Link><Link className="links" to="/top">Trending</Link></Nav.Link>
+      <Nav.Link><Link className="links" to="/trending">Trending</Link></Nav.Link>
       <Nav.Link><Link className="links" to="/search/">Search</Link></Nav.Link>
     </Nav>
   </Navbar>

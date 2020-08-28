@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 const Show = (props) => {
     const [image, setImage] = useState([]);  
     useEffect(() => {
-      var address = "http://localhost:9000/seriesimage/" + props.tvdbid;  
+      var address = "http://192.168.1.10:9000/seriesimage/" + props.tvdbid;  
       Axios.get(address)
       .then(function (response) {
           setImage (response.data);
@@ -27,7 +27,7 @@ const Show = (props) => {
         <Link to={"/show/" + props.traktid}>
                   <Header color="yellow" as='h5' floated="left">{props.title}</Header>
         </Link>
-        <Header floated="right" as="h5"><FavIcon key={props.traktid} id = {props.traktid}/></Header>
+        <Header className="heading" floated="right" as="h5"><FavIcon key={props.traktid} id = {props.traktid}/></Header>
         <Link to={"/show/" + props.traktid}>
         <Card>
           <Image fluid src={image} alt={props.title}/>

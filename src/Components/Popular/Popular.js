@@ -2,10 +2,10 @@ import React, {useState, useEffect} from 'react'
 import Show from '../Show/Show';
 import Axios from 'axios';
 import {Grid, Loader} from 'semantic-ui-react'
-const Top = () => {
+const Popular = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-      Axios.get('http://192.168.1.10:9000/trending')
+      Axios.get('http://192.168.1.10:9000/popular')
       .then(function (response) {
         console.log(response.data)
         setData(response.data);
@@ -31,8 +31,8 @@ const Top = () => {
         <Grid doubling columns={4} container>
 
         {data.map(show =>(
-          <Grid.Column key={show.show.ids.trakt} >
-          <Show key={show.show.ids.trakt} title={show.show.title} tvdbid={show.show.ids.tvdb} traktid={show.show.ids.trakt} year={show.show.year}/>
+          <Grid.Column key={show.ids.trakt} >
+          <Show key={show.ids.trakt} title={show.title} tvdbid={show.ids.tvdb} traktid={show.ids.trakt} year={show.year}/>
           </Grid.Column>
         ))}
         </Grid>
@@ -44,4 +44,4 @@ const Top = () => {
 
 
 
-export default Top;
+export default Popular;

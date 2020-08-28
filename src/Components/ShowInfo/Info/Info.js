@@ -5,14 +5,17 @@ import {Header, Container, Image, Flag, Embed} from 'semantic-ui-react'
 import Episode from '../../Episode/Episode';
 import {Accordion, Card} from 'react-bootstrap';
 function youtube_parser(url){
+  if (url === null){
+    return;
+  }
   var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
   var match = url.match(regExp);
-  return (match&&match[7].length==11)? match[7] : false;
+  return (match&&match[7].length===11)? match[7] : false;
 }
 const Info = (props) => {
     const [image, setImage] = useState([]);
     useEffect(() => {
-        var address = "http://localhost:9000/seriesbanner/" + props.data.ids.tvdb;  
+        var address = "http://192.168.1.10:9000/seriesbanner/" + props.data.ids.tvdb;  
         Axios.get(address)
         .then(function (response) {
             setImage (response.data);
@@ -29,7 +32,6 @@ const Info = (props) => {
         
 
       }, [props.data.ids.tvdb]);
-    var event = 0;
 
     return (
         <div>

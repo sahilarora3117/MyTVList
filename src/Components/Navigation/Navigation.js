@@ -10,6 +10,7 @@ import Popular from '../Popular/Popular';
 import Anticipated from '../Anticipated/Anticipated'
 import List from '../List/List';
 import Genre from '../Genre/Genre';
+import Search from '../Search/Search';
 export default function App() {
     return (
     <Router>
@@ -30,18 +31,17 @@ export default function App() {
     </Nav>
     </Navbar.Collapse>
   </Navbar>
-  <br />
-  <br />
-  <br />
+
     
         <Route path="/" exact component={Fav} />
         <Route path="/trending" component={TopView} />
         <Route path="/show/:id" component={ShowInfo} />
-        <Route path="/search/" component={Result}/>
+        <Route path="/search/" exact component={SearchView}/>
         <Route path="/popular/" component={PopularView}/>
         <Route path="/anticipated" component={AntiView}/>
         <Route path="/list"  component={ListView}/>
         <Route path="/list/:genres" component={GenreView}/>
+        <Route path="/search/:query" component={ResultPage}/>
   </Router>
     );
   }
@@ -90,5 +90,11 @@ const ListView = () => (
 const GenreView = () => (
   <Fragment>
     <Genre />
+  </Fragment>
+)
+
+const SearchView = () => (
+  <Fragment>
+    <Search />
   </Fragment>
 )

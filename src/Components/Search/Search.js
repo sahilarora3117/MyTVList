@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Input, Button} from 'semantic-ui-react';
+import {Container, Form} from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 import './Search.css';
 
@@ -17,9 +17,16 @@ class searchbar extends React.Component {
 
 
         <Container>
-            <Input size='massive'  className="search" fluid type='text' value={this.state.value} onChange={this.handleChange}  placeholder='Search...' name="query" >
-            <Button><Link to={"/search/" + encodeURI(this.state.value)}>Search</Link></Button>
-            </Input>
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Group widths="equal">
+            <Form.Input
+              inverted fluid type='text' value={this.state.value} onChange={this.handleChange}  placeholder='Search...' name="query"
+            />
+            
+            <Link to={"/search/" + encodeURI(this.state.value)}><Form.Button content='Search' /></Link>
+          </Form.Group>
+        </Form>
+      
         </Container>
 
 

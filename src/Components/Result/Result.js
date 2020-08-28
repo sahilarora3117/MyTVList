@@ -10,7 +10,7 @@ const Result = (props) => {
     var path = location.pathname.substring(location.pathname.lastIndexOf('/') + 1)
 
     useEffect (() => {
-        Axios.get('http://localhost:9000/search/' + path)
+        Axios.get('http://192.168.1.10:9000/search/' + path)
         .then(function (response) {
           setData(response.data);
           console.log(response.data);

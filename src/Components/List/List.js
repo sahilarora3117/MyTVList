@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
-import Show from '../Show/Show';
 import Axios from 'axios';
-import {Grid, Loader} from 'semantic-ui-react'
-const Top = () => {
+import {Grid, Loader, Button} from 'semantic-ui-react'
+import {Link} from 'react-router-dom';
+
+const Popular = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-      Axios.get('http://192.168.1.10:9000/trending')
+      Axios.get('http://192.168.1.10:9000/list')
       .then(function (response) {
         console.log(response.data)
         setData(response.data);
@@ -28,11 +29,13 @@ const Top = () => {
       return (
         <div>
         
-        <Grid doubling columns={4} container>
+        <Grid doubling columns={5} container>
 
-        {data.map(show =>(
-          <Grid.Column key={show.show.ids.trakt} >
-          <Show key={show.show.ids.trakt} title={show.show.title} tvdbid={show.show.ids.tvdb} traktid={show.show.ids.trakt} year={show.show.year}/>
+        {data.map(genre =>(
+          <Grid.Column key={genre.slug} >
+            <Link to={"/list/" + genre.slug}>
+            <Button inverted color='purple'>{genre.name}</Button>
+            </Link>
           </Grid.Column>
         ))}
         </Grid>
@@ -44,4 +47,4 @@ const Top = () => {
 
 
 
-export default Top;
+export default Popular;

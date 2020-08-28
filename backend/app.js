@@ -13,6 +13,10 @@ var showinfo = require('./routes/showinfo');
 var seriesbanner = require('./routes/seriesbanner');
 var episodelist = require('./routes/episodelist');
 var search = require('./routes/search');
+var popular = require('./routes/popular');
+var anticipated = require('./routes/anticipated');
+var genres = require('./routes/genres');
+var list = require('./routes/list')
 var app = express();
 
 // view engine setup
@@ -35,6 +39,12 @@ app.use('/showinfo/', showinfo);
 app.use('/seriesbanner', seriesbanner);
 app.use('/episodelist', episodelist)
 app.use('/search', search);
+app.use('/popular', popular);
+app.use('/anticipated', anticipated);
+app.use('/list', list);
+app.use('/genres', genres);
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

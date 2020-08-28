@@ -2,22 +2,27 @@ import React, {useState, useEffect} from 'react'
 import Show from '../Show/Show';
 import Axios from 'axios';
 import {Grid, Loader} from 'semantic-ui-react'
-const Top = () => {
+import { useLocation } from 'react-router-dom';
+
+const Genre = () => {
     const [data, setData] = useState([]);
+    let location = useLocation();
+    var path = location.pathname.substring(location.pathname.lastIndexOf('/') + 1);
     useEffect(() => {
-      Axios.get('http://192.168.1.10:9000/trending')
-      .then(function (response) {
-        console.log(response.data)
-        setData(response.data);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-      .finally(function () {
-        // always executed
-      });
-      }, []);
+        Axios.get('http://192.168.1.10:9000/genres/' + path)
+        .then(function (response) {
+          setData(response.data);
+          console.log(response.data)
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        })
+        .finally(function () {
+          // always executed
+        });
+    }, [path]);
+
   
       if (data.length === 0) {
         return (
@@ -44,4 +49,4 @@ const Top = () => {
 
 
 
-export default Top;
+export default Genre;

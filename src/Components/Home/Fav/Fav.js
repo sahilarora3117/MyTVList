@@ -23,7 +23,7 @@ const Fav = (props) => {
         if (data.length === 0) {
             return ( 
               <Card>
-                <Placeholder inverted style={{ height: 383, width: 260 }}>
+                <Placeholder inverted style={{ minHeight:"100%",height:"100%", width: "100%" }}>
                   <Placeholder.Image />
                 </Placeholder>
               </Card>

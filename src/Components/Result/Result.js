@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Show from '../Show/Show';
 import { useLocation } from 'react-router-dom';
 import Axios from 'axios'
-import {Grid, Loader} from 'semantic-ui-react'
+import {Container, Grid, Header, Loader} from 'semantic-ui-react'
 import Search from '../Search/Search'
 const Result = (props) => {
     const [data,setData] = useState([]);
@@ -37,7 +37,9 @@ const Result = (props) => {
         return (
             <div>
         <Search></Search>
-        
+        <Container>
+        <Header as="h2" inverted color="purple" style={{marginTop:"1em", marginBottom:"1em"}}>Search Results for: {path}</Header>
+        </Container>
         <Grid doubling columns={4} container>
 
         {data.map(show =>(

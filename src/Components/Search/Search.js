@@ -16,14 +16,14 @@ class searchbar extends React.Component {
       <div>
 
 
-        <Container>
+        <Container style={{marginTop:"1em", marginBottom:"1em"}}>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group widths="equal">
             <Form.Input
               inverted fluid type='text' value={this.state.value} onChange={this.handleChange}  placeholder='Search...' name="query"
             />
             
-            <Link to={"/search/" + encodeURI(this.state.value)}><Form.Button content='Search' /></Link>
+            <Link to={"/search/" + encodeURI(this.state.value)}><Form.Button inverted content='Search' /></Link>
           </Form.Group>
         </Form>
       

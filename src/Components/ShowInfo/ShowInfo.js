@@ -37,7 +37,7 @@ const ShowInfo = () => {
     if (data.length === 0 || episode.length === 0){
         return (
             <div>
-                          <Loader active inline='centered' >Loading</Loader>
+                          <Loader active style={{marginTop:"1em"}} inline='centered' >Loading</Loader>
 
             </div>
         // <Info tvdbid={data.ids.tvdb}/>

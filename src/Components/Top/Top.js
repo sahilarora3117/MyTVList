@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Show from '../Show/Show';
 import Axios from 'axios';
-import {Grid, Loader} from 'semantic-ui-react'
+import {Grid, Loader, Header, Container} from 'semantic-ui-react'
 const Top = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
@@ -21,15 +21,22 @@ const Top = () => {
   
       if (data.length === 0) {
         return (
+          <Container>
+          <Header as="h2" inverted style={{marginTop:"1em", marginBottom:"1em"}} color="purple">Trending</Header>
           <Loader active inline='centered' >Loading</Loader>
+          </Container>
+          
           
           );
       }
       return (
         <div>
-        
-        <Grid doubling columns={4} container>
+          <Container>
+          <Header as="h2" inverted style={{marginTop:"1em", marginBottom:"1em"}} color="purple">Trending</Header>
 
+          </Container>
+        <Grid doubling columns={4} container>
+        
         {data.map(show =>(
           <Grid.Column key={show.show.ids.trakt} >
           <Show key={show.show.ids.trakt} title={show.show.title} tvdbid={show.show.ids.tvdb} traktid={show.show.ids.trakt} year={show.show.year}/>

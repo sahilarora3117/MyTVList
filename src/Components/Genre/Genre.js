@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Show from '../Show/Show';
 import Axios from 'axios';
-import {Grid, Loader} from 'semantic-ui-react'
+import {Container, Grid, Header, Loader} from 'semantic-ui-react'
 import { useLocation } from 'react-router-dom';
 
 const Genre = () => {
@@ -26,13 +26,20 @@ const Genre = () => {
   
       if (data.length === 0) {
         return (
-          <Loader active inline='centered' >Loading</Loader>
+          <Container>
+                      <Loader active inline='centered' >Loading</Loader>
+
+          </Container>
+       
           
           );
       }
       return (
         <div>
-        
+          <Container>
+          <Header as="h2" inverted color="purple" style={{textTransform:"capitalize", marginTop:"1em", marginBottom:"1em"}}>{path}</Header>
+
+          </Container>
         <Grid doubling columns={4} container>
 
         {data.map(show =>(

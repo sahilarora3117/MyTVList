@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Axios from 'axios';
-import {Grid, Loader, Button} from 'semantic-ui-react'
+import {Grid, Loader, Button, Container, Header} from 'semantic-ui-react'
 import {Link} from 'react-router-dom';
 
 const Popular = () => {
@@ -22,14 +22,18 @@ const Popular = () => {
   
       if (data.length === 0) {
         return (
+          <Container>
+          <Header as="h2" inverted style={{marginTop:"1em", marginBottom:"1em"}} color="purple">Genres</Header>
           <Loader active inline='centered' >Loading</Loader>
-          
+          </Container>
           );
       }
       return (
         <div>
-        
-        <Grid doubling columns={5} container>
+        <Container>
+          <Header as="h2" inverted style={{marginTop:"1em", marginBottom:"1em"}} color="purple">Genres</Header>
+          </Container>
+        <Grid doubling columns={5} container style={{marginBottom:"1em"}}>
 
         {data.map(genre =>(
           <Grid.Column key={genre.slug} >

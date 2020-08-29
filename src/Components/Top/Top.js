@@ -5,7 +5,7 @@ import {Grid, Loader} from 'semantic-ui-react'
 const Top = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-      Axios.get('http://192.168.1.10:9000/trending')
+      Axios.get('https://mytvlistbackend.herokuapp.com/trending')
       .then(function (response) {
         console.log(response.data)
         setData(response.data);

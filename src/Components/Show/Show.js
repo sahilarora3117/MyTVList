@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 const Show = (props) => {
     const [image, setImage] = useState([]);  
     useEffect(() => {
-      var address = "http://192.168.1.10:9000/seriesimage/" + props.tvdbid;  
+      var address = "https://mytvlistbackend.herokuapp.com/seriesimage/" + props.tvdbid;  
       Axios.get(address)
       .then(function (response) {
           setImage (response.data);

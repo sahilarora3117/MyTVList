@@ -3,7 +3,7 @@ var router = express.Router();
 var Axios = require('axios');
 
 router.get('/:id', function (req,res){
-    Axios.get('https://api.trakt.tv/shows/' + req.params.id + '/seasons?extended=episodes', {
+    Axios.get('https://api.trakt.tv/shows/' + req.params.id, {
         headers: {
             "trakt-api-key":
             "61f407a46f6292f437b152e9a3e1009707fcd2634b9c3ff808d168988098a94d",
@@ -25,3 +25,4 @@ router.get('/:id', function (req,res){
 
 
 module.exports = router;
+// Axios.get('https://api.trakt.tv/shows/' + req.params.id + '/seasons?extended=episodes', {

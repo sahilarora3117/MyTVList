@@ -15,7 +15,7 @@ function youtube_parser(url){
 const Info = (props) => {
     const [image, setImage] = useState([]);
     useEffect(() => {
-        var address = "http://192.168.1.10:9000/seriesbanner/" + props.data.ids.tvdb;  
+        var address = "https://mytvlistbackend.herokuapp.com/seriesbanner/" + props.data.ids.tvdb;  
         Axios.get(address)
         .then(function (response) {
             setImage (response.data);

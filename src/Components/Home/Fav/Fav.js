@@ -7,7 +7,7 @@ import {Placeholder, Card} from 'semantic-ui-react';
 const Fav = (props) => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        Axios.get('http://192.168.1.10:9000/showsummary/' + props.ids)
+        Axios.get('https://mytvlistbackend.herokuapp.com/showsummary/' + props.ids)
         .then(function (response) {
           console.log(response.data)
           setData(response.data);

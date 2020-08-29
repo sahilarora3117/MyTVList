@@ -9,7 +9,7 @@ const Genre = () => {
     let location = useLocation();
     var path = location.pathname.substring(location.pathname.lastIndexOf('/') + 1);
     useEffect(() => {
-        Axios.get('http://192.168.1.10:9000/genres/' + path)
+        Axios.get('https://mytvlistbackend.herokuapp.com/genres/' + path)
         .then(function (response) {
           setData(response.data);
           console.log(response.data)

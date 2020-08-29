@@ -9,7 +9,7 @@ const ShowInfo = () => {
     const [data, setData] = useState([]);
     const [episode, setEpisode] = useState([]);
     useEffect(() => {
-        Axios.get('http://192.168.1.10:9000/showinfo/' + path)
+        Axios.get('https://mytvlistbackend.herokuapp.com/showinfo/' + path)
         .then(function (response) {
           setData(response.data);
           console.log(response.data)
@@ -21,7 +21,7 @@ const ShowInfo = () => {
         .finally(function () {
           // always executed
         });
-        var address = "http://192.168.1.10:9000/episodelist/" + path;  
+        var address = "https://mytvlistbackend.herokuapp.com/episodelist/" + path;  
         Axios.get(address)
         .then(function (response) {
             setEpisode (response.data);

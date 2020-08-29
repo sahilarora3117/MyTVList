@@ -66,11 +66,7 @@ const ShowInfo = () => (
   </Fragment>
 )
 
-const Result = () => (
-  <Fragment>
-    <ResultPage />
-  </Fragment>
-)
+
 const PopularView = () => (
   <Fragment>
     <Popular />

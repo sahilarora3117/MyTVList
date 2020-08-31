@@ -40,7 +40,6 @@ const ShowInfo = () => {
                           <Loader active style={{marginTop:"1em"}} inline='centered' >Loading</Loader>
 
             </div>
-        // <Info tvdbid={data.ids.tvdb}/>
         )
     }
     else {

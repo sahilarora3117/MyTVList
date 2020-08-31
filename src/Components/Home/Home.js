@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Fav from './Fav/Fav';
 import {Grid, Container, Header, Icon} from 'semantic-ui-react'
+import { Redirect } from 'react-router-dom';
 
 const Home = () => {
     function emptylocal () {
@@ -16,12 +17,10 @@ const Home = () => {
         
     }, []);   
     
-    if (data.length === 0){
+    if (JSON.parse(localStorage.getItem("myfav")).length === 0){
+        
         return (
-            <Container textAlign="center">
-                <Header as="h3" inverted color="purple" style={{marginTop:"3em", marginBottom:"3em"}}>This looks empty try adding some shows</Header>
-                <Icon name='file outline' size='massive' color="purple" />
-            </Container>
+            <Redirect to="/relavant-home"/>
         )
     }
     

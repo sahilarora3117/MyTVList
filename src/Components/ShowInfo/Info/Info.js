@@ -52,17 +52,17 @@ const Info = (props) => {
             placeholder='https://www.xda-developers.com/files/2018/03/youtube-dark-1024x672.png'
             source='youtube'
   />
-              <Header as='h2'>Episodes:</Header>
-              <Accordion className="Acc">
+              <Header as='h2' color="yellow">Episodes:</Header>
+              <Accordion style={{backgroundColor:"black", border:"none"}}>
               <Card>
               {props.episode.map((season, index) =>(
                 <div>
                   
 
-                    <Accordion.Toggle as={Card.Header} eventKey={index+1}>                                
+                    <Accordion.Toggle style={{backgroundColor:"#202020", border:"none"}} as={Card.Header} eventKey={index+1} >                                
                     Season:  {season.number}
                        </Accordion.Toggle>
-                      <Accordion.Collapse eventKey={index+1}>
+                      <Accordion.Collapse style={{backgroundColor:"#202020", color:"white"}} eventKey={index+1}>
       <Card.Body><Episode data={season} /></Card.Body>
     </Accordion.Collapse>
                   

@@ -1,5 +1,5 @@
 import React from 'react';
-import { List } from 'semantic-ui-react';
+import { List, Header } from 'semantic-ui-react';
 import Watched from './Watched/Watched';
 const Episode = (props) => {
     return (
@@ -8,7 +8,7 @@ const Episode = (props) => {
                 <List.Item>
                 <Watched epid={episode.ids.trakt}/>
                 <List.Content>
-                  <List.Header as='h6'>{episode.number}: {episode.title}</List.Header>
+                  <Header as='h6' inverted color="grey">{episode.number}: {episode.title}</Header>
                   
                 </List.Content>
               </List.Item>

@@ -10,6 +10,7 @@ import {
   Container,
 } from 'semantic-ui-react'
 import Remove from './RemoveData/Remove';
+import ReactFileReader from 'react-file-reader';
 function settings() {
   const createBackup = () => {
     var fav = JSON.parse(localStorage.getItem("myfav"));
@@ -19,25 +20,22 @@ function settings() {
     var exportdata = {favourites: fav, watchlist: episodes};
     console.log(exportdata);
     var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0');
-var yyyy = today.getFullYear();
-today = mm + '-' + dd + '-' + yyyy;
-
-var fileName = 'MyTVList-Backup-' + today + '.json';
-
-// Create a blob of the data
-var fileToSave = new Blob([JSON.stringify(exportdata)], {
-  type: 'application/json',
-  name: fileName
-});
-saveAs(fileToSave, fileName);
-
-// Save the file
-
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+    today = mm + '-' + dd + '-' + yyyy;
+    var fileName = 'MyTVList-Backup-' + today + '.json';
+    var fileToSave = new Blob([JSON.stringify(exportdata)], {
+      type: 'application/json',
+      name: fileName
+    });
+    saveAs(fileToSave, fileName);
 
   }
 
+  const handle = files => {
+    console.log(files)
+  }
 
     return (
         <Container style= {{marginTop:"1em"}}>
@@ -61,9 +59,12 @@ saveAs(fileToSave, fileName);
         <Grid.Column>
           <Header icon inverted>
             <Icon name='upload' inverted />
+          
             Import Data
           </Header>
+          <ReactFileReader fileTypes={[".json"]} base64={true} handleFiles={ handle}>
           <Button primary>Import</Button>
+          </ReactFileReader>
         </Grid.Column>
       </Grid.Row>
     </Grid>

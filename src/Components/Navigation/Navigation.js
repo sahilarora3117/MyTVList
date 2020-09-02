@@ -14,6 +14,7 @@ import Genre from '../Genre/Genre';
 import Search from '../Search/Search';
 import Settings from '../Settings/Settings';
 import Landing from '../Landing/Landing';
+import EpisodeInfo from '../Episode/EpisodeInfo/EpisodeInfo';
 export default function App() {
     return (
     <Router>
@@ -48,6 +49,7 @@ export default function App() {
         <Route path="/search/:query" component={ResultPage}/>
         <Route path="/settings" exact component={SettingsPage}/>
         <Route path="/relevant-home/" component={RelevantHome}/>
+        <Route path="/episodes/:id/season/:season/episode/:episode" component={EpisodePage}/>
   </Router>
     );
   }
@@ -111,5 +113,12 @@ const SettingsPage = () => (
 const RelevantHome = () => (
   <Fragment>
     <Landing />
+  </Fragment>
+)
+
+
+const EpisodePage = () => (
+  <Fragment>
+    <EpisodeInfo />
   </Fragment>
 )

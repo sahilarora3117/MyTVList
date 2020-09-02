@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Icon } from 'semantic-ui-react';
+import { Icon, Button } from 'semantic-ui-react';
 
 const Watched = (props) => {
     const [includes, setincludes] = useState();
@@ -48,13 +48,20 @@ const Watched = (props) => {
     }
     if (includes === true || JSON.parse(localStorage.getItem("episodes")).includes(props.epid) === true ){
         return (
-                            <Icon name="eye" color='green' fitted onClick={removefromwatched}></Icon>
+                        <Button inverted size="tiny" floated="left" color="green" icon="eye" circular fitted onClick={removefromwatched}>
+
+                        </Button>
+                      
 
         )
     }
     else {
         return (
-            <Icon name="eye"   fitted onClick={addtowatched} />
+            <Button inverted size="tiny" floated="left" icon="eye" circular fitted onClick={addtowatched}>
+
+            </Button>
+                
+         
         )
     }
 }

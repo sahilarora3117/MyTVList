@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 import './Info.css';
-import {Header, Container, Image, Flag, Embed} from 'semantic-ui-react'
+import Added from './Added/Added';
+// import Cast from './Cast/Cast';
+import {Header, Container, Image, Flag, Embed, Button} from 'semantic-ui-react'
 import Episode from '../../Episode/Episode';
 import {Accordion, Card} from 'react-bootstrap';
 function youtube_parser(url){
@@ -43,15 +45,19 @@ const Info = (props) => {
             <Container>
               <Header as='h1' color="yellow">{props.data.title}</Header>
               <Header as='h6' color="grey">{props.data.overview}</Header>
+              <Added id={props.data.ids.trakt}/>
               <br /> <br />
               <p>Certification: {props.data.certification}</p>
               <p>Country: {props.data.country.toUpperCase()} <Flag name={props.data.country} /></p>
               <p>Language: {props.data.language.toUpperCase()}</p>
+              <Header as='h2' color="yellow">Trailer:</Header>
               <Embed
             id={youtube_parser(props.data.trailer)}
             placeholder='https://www.xda-developers.com/files/2018/03/youtube-dark-1024x672.png'
             source='youtube'
   />
+              {/* <Header as='h2' color="yellow">Cast</Header>
+              <Cast cast={props.cast}/> */}
               <Header as='h2' color="yellow">Episodes:</Header>
               <Accordion style={{backgroundColor:"black", border:"none"}}>
               <Card>
@@ -63,7 +69,7 @@ const Info = (props) => {
                     Season:  {season.number}
                        </Accordion.Toggle>
                       <Accordion.Collapse style={{backgroundColor:"#202020", color:"white"}} eventKey={index+1}>
-      <Card.Body><Episode data={season} /></Card.Body>
+      <Card.Body><Episode id={props.traktid} season={season.number} data={season} /></Card.Body>
     </Accordion.Collapse>
                   
                   

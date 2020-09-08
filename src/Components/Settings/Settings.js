@@ -11,6 +11,7 @@ import {
 } from 'semantic-ui-react'
 import Remove from './RemoveData/Remove';
 import ReactFileReader from 'react-file-reader';
+import ImportData from './ImportData/Import';
 function settings() {
   const createBackup = () => {
     var fav = JSON.parse(localStorage.getItem("myfav"));
@@ -34,7 +35,14 @@ function settings() {
   }
 
   const handle = files => {
-    console.log(files)
+    var data = files.base64.split(',');
+    console.log(data[1]);
+    var codata =  atob(data[1]);
+    var parsed =  JSON.parse(codata);
+    console.log(parsed.favourites);
+    localStorage.setItem("myfav", JSON.stringify(parsed.favourites));
+    localStorage.setItem("episodes", JSON.stringify(parsed.watchlist));
+
   }
 
     return (

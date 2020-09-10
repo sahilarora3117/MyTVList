@@ -15,6 +15,8 @@ import Search from '../Search/Search';
 import Settings from '../Settings/Settings';
 import Landing from '../Landing/Landing';
 import EpisodeInfo from '../Episode/EpisodeInfo/EpisodeInfo';
+import Upcoming from '../Upcoming/Upcoming';
+import UpcomingEpisode from "../Upcoming/UpcomingEpisode/UpcomingEpisode";
 export default function App() {
     return (
     <Router>
@@ -27,6 +29,8 @@ export default function App() {
       <Nav.Link><Link className="links" to="/trending"><Button basic inverted compact color="orange">Trending</Button></Link></Nav.Link>
       <Nav.Link><Link className="links" to="/popular/"><Button basic inverted compact color="orange">Popular</Button></Link></Nav.Link>
       <Nav.Link><Link className="links" to="/anticipated/"><Button basic inverted compact color="orange">Anticipated</Button></Link></Nav.Link>
+      <Nav.Link><Link className="links" to="/upcoming/"><Button basic inverted compact color="orange">Upcoming</Button></Link></Nav.Link>
+
     </Nav>
     <Nav>
     <Nav.Link><Link className="links" to="/list/"><Button icon="tags" circular inverted></Button></Link></Nav.Link>
@@ -39,10 +43,10 @@ export default function App() {
 
     
         <Route path="/" exact component={Fav} />
-        <Route path="/trending" component={TopView} />
+        <Route path="/trending" exact component={TopView} />
         <Route path="/show/:id" component={ShowInfo} />
-        <Route path="/search/" exact component={SearchView}/>
-        <Route path="/popular/" component={PopularView}/>
+        <Route path="/search/" exact exact component={SearchView}/>
+        <Route path="/popular/" exact component={PopularView}/>
         <Route path="/anticipated" component={AntiView}/>
         <Route path="/list"  component={ListView}/>
         <Route path="/list/:genres" component={GenreView}/>
@@ -50,6 +54,8 @@ export default function App() {
         <Route path="/settings" exact component={SettingsPage}/>
         <Route path="/relevant-home/" component={RelevantHome}/>
         <Route path="/episodes/:id/season/:season/episode/:episode" component={EpisodePage}/>
+        <Route path="/upcoming" exact component={UpcomingPage}/>
+        <Route component={NoMatchPage} />
   </Router>
     );
   }
@@ -120,5 +126,18 @@ const RelevantHome = () => (
 const EpisodePage = () => (
   <Fragment>
     <EpisodeInfo />
+  </Fragment>
+)
+
+
+const UpcomingPage = () => (
+  <Fragment>
+    <Upcoming/>
+  </Fragment>
+) 
+
+const NoMatchPage = () => (
+  <Fragment>
+    
   </Fragment>
 )

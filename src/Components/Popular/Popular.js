@@ -4,6 +4,7 @@ import Axios from 'axios';
 import {Grid, Loader, Container, Header} from 'semantic-ui-react'
 const Popular = () => {
     const [data, setData] = useState([]);
+
     useEffect(() => {
       Axios.get('https://mytvlistbackend.herokuapp.com/popular')
       .then(function (response) {

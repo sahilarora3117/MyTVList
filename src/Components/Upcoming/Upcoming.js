@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Grid, Container, Header} from 'semantic-ui-react'
+import {Item, Container, Header} from 'semantic-ui-react'
 import UpcomingEpisode from './UpcomingEpisode/UpcomingEpisode';
 
 const Home = () => {
@@ -22,16 +22,17 @@ const Home = () => {
         return (
             <div>
                 <Container>
-                <Header as="h2" inverted color="purple" style={{marginTop:"1em", marginBottom:"1em"}}>Your TVList</Header>
-            </Container>
-                <Grid doubling columns={4} container>
+                <Header as="h2" inverted color="purple" style={{marginTop:"1em", marginBottom:"1em"}}>Upcoming</Header>
             
+            <Item.Group>
                     {data.map(ids =>(
-                    <Grid.Column>
-                        <UpcomingEpisode></UpcomingEpisode>
-                    </Grid.Column>
+                        <Item>
+                            <UpcomingEpisode id={ids}/>
+                        </Item> 
+                    
                     ))}
-                </Grid>
+            </Item.Group>
+            </Container>
             </div>
     
         )

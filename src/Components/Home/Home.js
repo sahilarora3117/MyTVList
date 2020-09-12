@@ -4,10 +4,7 @@ import {Grid, Container, Header, Icon} from 'semantic-ui-react'
 import { Redirect } from 'react-router-dom';
 
 const Home = () => {
-    function emptylocal () {
-        localStorage.removeItem ("myfav");
-        localStorage.removeItem ("episodes");
-    }
+
     const [data, setData] = useState([]);
 
     useEffect (() => {
@@ -37,7 +34,6 @@ const Home = () => {
                     </Grid.Column>
                     ))}
                 </Grid>
-                <button onClick={emptylocal}>Clear Data</button>
             </div>
     
         )

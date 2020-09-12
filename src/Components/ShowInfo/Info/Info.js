@@ -6,6 +6,7 @@ import Added from './Added/Added';
 import {Header, Container, Image, Flag, Embed, Button} from 'semantic-ui-react'
 import Episode from '../../Episode/Episode';
 import {Accordion, Card} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 function youtube_parser(url){
   if (url === null){
     return;
@@ -34,22 +35,27 @@ const Info = (props) => {
         
 
       }, [props.data.ids.tvdb]);
-
     return (
         <div>
             
               <div className="imagediv">
               
-              <Image  src={image} alt="problem showing the poster" width="100%" className="image" fluid bordered/>
+              <Image  src={image} width="100%" className="image" fluid bordered/>
               </div>
             <Container>
-              <Header as='h1' color="yellow">{props.data.title}</Header>
-              <Header as='h6' color="grey">{props.data.overview}</Header>
+              <Header as='h1' color="yellow">{props.data.title + " (" + props.data.year  + ")"}</Header>
               <Added id={props.data.ids.trakt}/>
-              <br /> <br />
-              <p>Certification: {props.data.certification}</p>
-              <p>Country: {props.data.country.toUpperCase()} <Flag name={props.data.country} /></p>
-              <p>Language: {props.data.language.toUpperCase()}</p>
+
+              <Header as='h3' color="red">{props.data.network + " (" + props.data.status + ")"} </Header>
+              <Header as='h6' color="grey">{props.data.overview}</Header>
+              <Button inverted href={props.data.homepage} color="blue">Visit Homepage</Button>
+              <Header as='h6' inverted>Certification: {props.data.certification} <br /> Country: {props.data.country.toUpperCase()} <Flag name={props.data.country} /> <br /> Language: {props.data.language.toUpperCase()}</Header>
+              {props.data.genres.map((gen) =>(
+                  <Link to={"/list/" + gen}>
+                    <Button style={{marginRight:"1em"}} inverted color="purple" size="small">{gen.charAt(0).toUpperCase() + gen.slice(1)}</Button>
+                  </Link>
+    
+              ))}
               <Header as='h2' color="yellow">Trailer:</Header>
               <Embed
             id={youtube_parser(props.data.trailer)}

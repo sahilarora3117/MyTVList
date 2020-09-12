@@ -30,7 +30,7 @@ const Show = (props) => {
         <Header className="heading" floated="right" as="h5"><FavIcon key={props.traktid} id = {props.traktid}/></Header>
         <Link to={"/show/" + props.traktid}>
         <Card>
-          <Image fluid src={image} alt={props.title}/>
+          <Image size="medium" src={image} alt={props.title}/>
         </Card>
         </Link>
         </div>

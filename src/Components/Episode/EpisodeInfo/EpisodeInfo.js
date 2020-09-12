@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {  Loader, Container, Header } from 'semantic-ui-react';
+import {  Loader, Container, Header, Button, Statistic } from 'semantic-ui-react';
 import Axios from 'axios';
 const EpisodeInfo = (props) => {
     var path = window.location.href;
@@ -8,7 +8,6 @@ const EpisodeInfo = (props) => {
     var season = parray[parray.length -3];
     var id = parray[parray.length -5];
     const [data, setData] = useState([]);
-    const [image, setImage] = useState([]);
     useEffect(() => {
         Axios.get('https://mytvlistbackend.herokuapp.com/episode/' + id + '/' + season + '/' + episode)
         .then(function (response) {
@@ -22,7 +21,7 @@ const EpisodeInfo = (props) => {
         .finally(function () {
           // always executed
         });
-
+        
       
     }, [id, season, episode]);
 
@@ -42,6 +41,24 @@ const EpisodeInfo = (props) => {
       <header as="h5" color="grey">
         {data.overview}
       </header>
+        <br />
+      <Button inverted color="red">Mark Watched</Button>
+      <br /><br />
+      <Container>
+      <Statistic inverted>
+      <Statistic.Value>{data.rating}</Statistic.Value>
+    <Statistic.Label>Rating</Statistic.Label>
+  </Statistic>
+  <Statistic inverted>
+      <Statistic.Value>{data.votes}</Statistic.Value>
+    <Statistic.Label>Votes</Statistic.Label>
+  </Statistic>
+  <Statistic inverted>
+      <Statistic.Value>{data.runtime}</Statistic.Value>
+    <Statistic.Label>Runtime</Statistic.Label>
+  </Statistic>
+      </Container>
+      
         </Container>
         
       )

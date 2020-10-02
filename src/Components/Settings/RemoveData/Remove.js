@@ -11,9 +11,8 @@ function ModalExampleBasic() {
     localStorage.setItem("episodes", "[]");
 }
   return (
-      <Container>
-
-    <Modal className="modal"
+    <Container>
+       <Modal className="modal"
       basic
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
@@ -41,6 +40,8 @@ function ModalExampleBasic() {
       </Modal.Actions>
     </Modal>
     </Container>
+   
+
 
   )
 }

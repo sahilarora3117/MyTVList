@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {  Loader, Container, Header, Button, Statistic } from 'semantic-ui-react';
 import Axios from 'axios';
+import Watched from './WatchedButton/Watched';
 const EpisodeInfo = (props) => {
     var path = window.location.href;
     var parray = path.split('/');
@@ -42,7 +43,7 @@ const EpisodeInfo = (props) => {
         {data.overview}
       </header>
         <br />
-      <Button inverted color="red">Mark Watched</Button>
+      <Watched id={data.ids.trakt}></Watched>
       <br /><br />
       <Container>
       <Statistic inverted>

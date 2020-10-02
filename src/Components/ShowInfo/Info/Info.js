@@ -3,7 +3,7 @@ import Axios from 'axios';
 import './Info.css';
 import Added from './Added/Added';
 // import Cast from './Cast/Cast';
-import {Header, Container, Image, Flag, Embed, Button} from 'semantic-ui-react'
+import {Header, Container, Image, Flag, Embed, Button, Comment} from 'semantic-ui-react'
 import Episode from '../../Episode/Episode';
 import {Accordion, Card} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
@@ -84,6 +84,25 @@ const Info = (props) => {
               ))}
               </Card>
               </Accordion>
+              <Header as='h2' color="yellow">Comments:</Header>
+
+              <Comment.Group threaded>
+              {props.comments.map((comment, index) =>(
+                <Comment>
+                  <Comment.Avatar src='https://react.semantic-ui.com/images/avatar/small/elliot.jpg' />
+                  <Comment.Content inverted>
+              <Comment.Author><Header as="h6" inverted color="red">{comment.user.username}</Header></Comment.Author>
+              <Comment.Text><Header as="h6" inverted color="grey">{comment.comment}</Header></Comment.Text>
+        <Comment.Actions>
+          
+        </Comment.Actions>
+      </Comment.Content>
+      </Comment>
+              ))
+
+
+              }
+          </Comment.Group>
             </Container>
         </div>
     )

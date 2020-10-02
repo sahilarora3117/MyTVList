@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {Icon, Button} from 'semantic-ui-react'
+import { Button} from 'semantic-ui-react'
 
 const Added = (props) => {
     const [includes, setincludes] = useState();

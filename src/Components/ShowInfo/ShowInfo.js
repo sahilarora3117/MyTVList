@@ -34,7 +34,7 @@ const ShowInfo = () => {
         .finally(function () {
           // always executed
         });
-        var address = "https://mytvlistbackend.herokuapp.com/comments/" + path;  
+        address = "https://mytvlistbackend.herokuapp.com/comments/" + path;  
         Axios.get(address)
         .then(function (response) {
             setComments (response.data);

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Fav from './Fav/Fav';
-import {Grid, Container, Header, Icon} from 'semantic-ui-react'
+import {Grid, Container, Header} from 'semantic-ui-react'
 import { Redirect } from 'react-router-dom';
 
 const Home = () => {

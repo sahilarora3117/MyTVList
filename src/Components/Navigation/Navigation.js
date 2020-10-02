@@ -16,7 +16,6 @@ import Settings from '../Settings/Settings';
 import Landing from '../Landing/Landing';
 import EpisodeInfo from '../Episode/EpisodeInfo/EpisodeInfo';
 import Upcoming from '../Upcoming/Upcoming';
-import UpcomingEpisode from "../Upcoming/UpcomingEpisode/UpcomingEpisode";
 export default function App() {
     return (
     <Router>
@@ -45,7 +44,7 @@ export default function App() {
         <Route path="/" exact component={Fav} />
         <Route path="/trending" exact component={TopView} />
         <Route path="/show/:id" component={ShowInfo} />
-        <Route path="/search/" exact exact component={SearchView}/>
+        <Route path="/search/" exact component={SearchView}/>
         <Route path="/popular/" exact component={PopularView}/>
         <Route path="/anticipated" component={AntiView}/>
         <Route path="/list"  component={ListView}/>

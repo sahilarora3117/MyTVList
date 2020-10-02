@@ -11,7 +11,6 @@ import {
 } from 'semantic-ui-react'
 import Remove from './RemoveData/Remove';
 import ReactFileReader from 'react-file-reader';
-import ImportData from './ImportData/Import';
 function settings() {
   const createBackup = () => {
     var fav = JSON.parse(localStorage.getItem("myfav"));

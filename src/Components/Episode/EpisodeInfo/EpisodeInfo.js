@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {  Loader, Container, Header, Button, Statistic } from 'semantic-ui-react';
+import {  Loader, Container, Header, Statistic } from 'semantic-ui-react';
 import Axios from 'axios';
 import Watched from './WatchedButton/Watched';
 const EpisodeInfo = (props) => {

@@ -22,7 +22,7 @@ const UpcomingEpisode = (props) => {
         // always executed
       });
 
-      var address = "https://mytvlistbackend.herokuapp.com/showsummary/" + props.id;  
+      address = "https://mytvlistbackend.herokuapp.com/showsummary/" + props.id;  
       Axios.get(address)
       .then(function (response) {
           setDataNext (response.data);
@@ -36,7 +36,7 @@ const UpcomingEpisode = (props) => {
         // always executed
       });
     }, [props.id]);
-    if (data.length == 0 || datanext.length === 0) {
+    if (data.length === 0 || datanext.length === 0) {
         return (
           <span></span>
           );

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
-import {Image, Header, Loader, Container} from 'semantic-ui-react';
+import {Image} from 'semantic-ui-react';
 
 const UpcomingImage = (props) => {
     const [image, setImage] = useState([]);  

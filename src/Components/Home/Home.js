@@ -17,7 +17,7 @@ const Home = () => {
     if (JSON.parse(localStorage.getItem("myfav")).length === 0){
         
         return (
-            <Redirect to="/relavant-home"/>
+            <Redirect to="/trending"/>
         )
     }
     

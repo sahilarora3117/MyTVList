@@ -1,6 +1,15 @@
 import React, { useState } from 'react'
 import { Button} from 'semantic-ui-react'
-
+export const arrayRemove =(array, value)=> {
+    for(let i=0; i<array.length; ++i) {
+        if(array[i] === value) {
+            let copy = [...array];
+            copy.splice(i, 1);
+            return copy;
+        }
+    }
+    return array;
+}
 const Added = (props) => {
     const [includes, setincludes] = useState();
     function check () {
@@ -15,16 +24,7 @@ const Added = (props) => {
             console.log("false called");
         }
     }
-    function arrayRemove(array, value) {
-        for(let i=0; i<array.length; ++i) {
-            if(array[i] === value) {
-                let copy = [...array];
-                copy.splice(i, 1);
-                return copy;
-            }
-        }
-        return array;
-    }
+    
     function addtofav () {
         try{
             var myfav = localStorage.getItem("myfav");

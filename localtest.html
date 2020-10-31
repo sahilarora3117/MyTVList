@@ -1,0 +1,62 @@
+<!DOCTYPE />
+<html>
+<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var alphabet = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 123456789 {} +-=*/\'[]<>|&^%$#@!,?.";
+        var i = 0;
+        var curWord = "";
+        var tot = 0;
+        localStorage["sameSpot"] = null;
+        $("#same").bind("click", function () {
+            var write = function () {
+                if (!localStorage["sameSpot"])
+                    localStorage["sameSpot"] = alphabet[i++];
+                else {
+                    curWord = alphabet[i++] + localStorage["sameSpot"];
+                    localStorage["sameSpot"] = curWord;
+                }
+                if (i == alphabet.length)
+                    i = 0;
+                tot++;
+                $("#local").html(curWord);
+                $("#memory").html(localStorage["sameSpot"]);
+                $("p").html("The number of characters written to localStorage[\"sameSpot\"] is: " + tot);
+                setTimeout(write, 1);
+            };
+            write();
+        });
+
+
+        var tot2 = 0;
+        var totChars = 0;
+        $("#different").bind("click", function () {
+            var write = function () {
+                var saveObj = {
+                    alphabet: alphabet + alphabet + alphabet + alphabet + alphabet + alphabet + alphabet + alphabet + alphabet + alphabet + alphabet + alphabet,
+                    date: new Date(),
+                    random: Math.random()
+                };
+                saveObj = JSON.stringify(saveObj);
+                totChars += saveObj.length;
+                localStorage["t" + tot2] = saveObj;
+                $("#local").html(saveObj);
+                $("#memory").html(localStorage["t" + tot2]);
+                tot2++;
+                $("p").html("The number of unique entries made in localStorage[0++] is " + tot2 + " and the total number of characters is: " + totChars + " with an average of " + Math.floor(totChars / tot2) + " characters per record");
+                setTimeout(write, 1);
+            };
+            write();
+        });
+    });
+</script>
+<body>
+<button id="same">Write Chars To Same Spot</button>
+<button id="different">Write Chars To Same Spot</button>
+<br />
+<p></p>
+
+<textarea rows="50" cols="100" id="memory"></textarea>
+<textarea rows="50" cols="100" id="local"></textarea>
+</body>
+</html>

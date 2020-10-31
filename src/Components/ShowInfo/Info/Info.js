@@ -7,13 +7,17 @@ import {Header, Container, Image, Flag, Embed, Button, Comment} from 'semantic-u
 import Episode from '../../Episode/Episode';
 import {Accordion, Card} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-function youtube_parser(url){
+export const youtube_parser = (url) =>{
   if (url === null){
     return;
   }
   var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
   var match = url.match(regExp);
   return (match&&match[7].length===11)? match[7] : false;
+}
+
+export const networkstatus = (network, status) => {
+  return network + " (" + status + ")";
 }
 const Info = (props) => {
     const [image, setImage] = useState([]);
@@ -46,7 +50,7 @@ const Info = (props) => {
               <Header as='h1' color="yellow">{props.data.title + " (" + props.data.year  + ")"}</Header>
               <Added id={props.data.ids.trakt}/>
 
-              <Header as='h3' color="red">{props.data.network + " (" + props.data.status + ")"} </Header>
+    <Header as='h3' color="red">{networkstatus(props.data.network, props.data.status)}</Header>
               <Header as='h6' color="grey">{props.data.overview}</Header>
               <Button inverted href={props.data.homepage} color="blue">Visit Homepage</Button>
               <Header as='h6' inverted>Certification: {props.data.certification} <br /> Country: {props.data.country.toUpperCase()} <Flag name={props.data.country} /> <br /> Language: {props.data.language.toUpperCase()}</Header>
@@ -108,4 +112,4 @@ const Info = (props) => {
     )
 }
 
-export default Info
+export default Info;

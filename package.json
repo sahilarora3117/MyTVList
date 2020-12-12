@@ -1,8 +1,22 @@
 {
   "name": "mytvlist",
   "version": "0.1.0",
+  "description": "A minimal Electron based application for tracking TV Shows",
   "private": true,
   "homepage": ".",
+  "author": {
+    "name": "Sahil Arora",
+    "url": "https://www.sahilarora3117.github.io"
+  },
+  "icon": "icon.png",
+  "keywords": [
+    "Electron",
+    "TV Shows",
+    "Tracker",
+    "React"
+  ],
+  "repository": "https://github.com/sahilarora3117/MyTVList",
+  "category": "Utility",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
